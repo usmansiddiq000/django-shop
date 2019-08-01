@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<a class='btn btn-primary ' href="{% url 'core:order-done' order.id %}">Order Done for Id {{ order.id}} </a>
+{% endblock content %}

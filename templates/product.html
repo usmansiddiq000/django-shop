@@ -1,0 +1,78 @@
+
+{% extends 'base.html' %}
+{% block content  %}
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <img src="{{item.image.url}}" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <a href="">
+                <span class="badge purple mr-1">{{item.name}}</span>
+              </a>
+              <a href="">
+                <span class="badge blue mr-1">{{item.tag}}</span>
+              </a>
+              <a href="">
+                <span class="badge red mr-1">Bestseller</span>
+              </a>
+            </div>
+
+            <p class="lead">
+              {% if item.discount_price %}
+              <span class="mr-1">
+                <del>${{item.price}}</del>
+              </span>
+              <span>${{ item.discount_price}}</span>
+              {% else %}
+              <span>${{ item.price}}</span>
+              {% endif %}
+
+            </p>
+
+            <p class="lead font-weight-bold">{{item.title}}</p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor suscipit libero eos atque quia ipsa
+              sint voluptatibus!
+              Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
+
+            <form class="d-flex justify-content-left">
+              <a href="{{ item.add_to_cart }}"
+               class="btn btn-success btn-md my-0 p"> Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </a>
+              <a href="{{ item.remove_from_cart }}" class="btn btn-danger btn-md my-0 p" >Remove from cart
+                  <i class="fas fa-shopping-cart ml-1"></i>
+              </a>
+            </form>
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+  {% endblock content %}
+
